@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Math Homework Log</title>
+</head>
+
+<body>
+
+<h1>Math Homework Log</h1>
+<p>Please complete this brief log for each homework assignment.</p>
+
+{% if error_message %}<p><span class="error-message">{{ error_message }}</span></p>{% endif %}
+
+<form action="submit" method="post">
+{% csrf_token %}
+
+<div>
+<label for="first_name">First Name</label>
+<br />
+<input type="text" name="first_name" id="first_name" value=""></input>
+<br />
+</div>
+
+<div>
+<label for="assignment_title">Assignment Title</label>
+<br />
+<input type="text" name="assignment_title" id="assignment_title" value=""></input>
+<br />
+</div>
+
+<div>
+<label for="comments">Comments</label>
+<br />
+<textarea name="comments" id="comments" rows="8" cols="75"></textarea>
+<br />
+</div>
+
+<input type="submit" value="Submit" />
+</form>
+
+</body>
+</html>
