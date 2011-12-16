@@ -1,10 +1,7 @@
-<html>
-<head>
-<title>Math Homework Log</title>
-</head>
+{% extends 'log/base.html' %}
+{% block title %}Fill out the form{% endblock %}
 
-<body>
-
+{% block content %}
 <h1>Math Homework Log</h1>
 <p>Please complete this brief log for each homework assignment.</p>
 
@@ -13,29 +10,181 @@
 <form action="submit" method="post">
 {% csrf_token %}
 
-<div>
-<label for="first_name">First Name</label>
-<br />
-<input type="text" name="first_name" id="first_name" value=""></input>
-<br />
+<div class="field">
+  <label class="primary" for="first_name">First Name</label>
+  <br />
+  <input type="text" name="first_name" id="first_name" value=""></input>
 </div>
 
-<div>
-<label for="assignment_title">Assignment Title</label>
-<br />
-<input type="text" name="assignment_title" id="assignment_title" value=""></input>
-<br />
+<div class="field">
+  <label class="primary for="group">Group</label>
+  <ul class="radio-buttons">
+    <li><input type="radio" name="group" value="5 Air">&nbsp;5 Air</input></li>
+    <li><input type="radio" name="group" value="5 Water">&nbsp;5 Water</input></li>
+    <li><input type="radio" name="group" value="6 Air">&nbsp;6 Air</input></li>
+    <li><input type="radio" name="group" value="6 Water">&nbsp;6 Water</input></li>
+  </ul>
 </div>
 
-<div>
-<label for="comments">Comments</label>
-<br />
-<textarea name="comments" id="comments" rows="8" cols="75"></textarea>
-<br />
+<div class="field">
+  <label class="primary for="assignment_title">Assignment Title</label>
+  <br />
+  <input type="text" name="assignment_title" id="assignment_title" value=""></input>
+</div>
+
+<div class="field">
+  <label class="primary for="completion">Completion</label>
+  <br />
+  <label class="secondary" for="completion">How much of the assignment did you complete?</label>
+  <ul class="radio-buttons">
+    <li><input type="radio" name="completion" value="<50">&nbsp;&lt 50%</input></li>
+    <li><input type="radio" name="completion" value="0to50">&nbsp;50&mdash;75%</input></li>
+    <li><input type="radio" name="completion" value="75to90">&nbsp;75&mdash;90%</input></li>
+    <li><input type="radio" name="completion" value="90to100">&nbsp;90&mdash;100%</input></li>
+  </ul>
+</div>
+
+<div class="field">
+  <label class="primary" for="understanding">Understanding</label>
+  <br />
+  <label class="secondary" for="time">
+    How well did you understand this assignment? 1 means you understood a little, 2 means you mostly understood.<br />
+    Disclaimer: don't worry if you're not choosing 3. Some days, I'll give you problems that I don't expect you to understand completely.
+  </label>
+  <br />
+  <table class="ratings">
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="scores">
+      <td>Didn't Understand</td>
+      <td><input type="radio" name="understanding" value="0"></input></td>
+      <td><input type="radio" name="understanding" value="1"></input></td>
+      <td><input type="radio" name="understanding" value="2"></input></td>
+      <td><input type="radio" name="understanding" value="3"></input></td>
+      <td>Understood Completely</td>
+    </tr>
+  </table>
+</div>
+
+<div class="field">
+  <label class="primary" for="practice">Understanding</label>
+  <br />
+  <label class="secondary" for="time">
+    IF the assignment has a "Practice" section, how well did you understand this part? If the assignment didn't have a "Practice" section, skip this question.
+  </label>
+  <br />
+  <table class="ratings">
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="scores">
+      <td>Didn't Understand</td>
+      <td><input type="radio" name="practice" value="0"></input></td>
+      <td><input type="radio" name="practice" value="1"></input></td>
+      <td><input type="radio" name="practice" value="2"></input></td>
+      <td><input type="radio" name="practice" value="3"></input></td>
+      <td>Understood Completely</td>
+    </tr>
+  </table>
+</div>
+
+<div class="field">
+  <label class="primary" for="pushing">Understanding</label>
+  <br />
+  <label class="secondary" for="time">
+    IF the assignment has a "Pushing" section, how well did you understand this part? If the assignment didn't have a "Pushing" section, skip this question.
+  </label>
+  <br />
+  <table class="ratings">
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="scores">
+      <td>Didn't Understand</td>
+      <td><input type="radio" name="pushing" value="0"></input></td>
+      <td><input type="radio" name="pushing" value="1"></input></td>
+      <td><input type="radio" name="pushing" value="2"></input></td>
+      <td><input type="radio" name="pushing" value="3"></input></td>
+      <td>Understood Completely</td>
+    </tr>
+  </table>
+</div>
+
+<div class="field">
+  <label class="primary" for="pondering">Understanding</label>
+  <br />
+  <label class="secondary" for="time">
+    IF the assignment has a "Pondering" section, how well did you understand this part? If the assignment didn't have a "Pondering" section, skip this question.
+  </label>
+  <br />
+  <table class="ratings">
+    <tr>
+      <td></td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr class="scores">
+      <td>Didn't Understand</td>
+      <td><input type="radio" name="pondering" value="0"></input></td>
+      <td><input type="radio" name="pondering" value="1"></input></td>
+      <td><input type="radio" name="pondering" value="2"></input></td>
+      <td><input type="radio" name="pondering" value="3"></input></td>
+      <td>Understood Completely</td>
+    </tr>
+  </table>
+</div>
+
+<div class="field">
+  <label class="primary" for="time">Time</label>
+  <br />
+  <label class="secondary" for="time">About how many minutes did you spend on the assignment?</label>
+  <br />
+  <input type="text" name="time" id="time" value="" placeholder="minutes"></input>
+</div>
+
+<div class="field">
+  <label class="primary for="help">Help</label>
+  <br />
+  <label class="secondary" for="help">List any problems you'd like help with, or type "none".</label>
+  <br />
+  <input type="text" name="help" id="help" value=""></input>
+</div>
+
+<div class="field">
+  <label class="primary" for="collaboration">Collaboration</label>
+  <br />
+  <label class="secondary" for="collaboration">List any problems you got help with from someone else and/or worked on with someone else (type "none" if you did everything on your own).</label>
+  <br />
+  <textarea name="collaboration" id="collaboration" rows="8" cols="75"></textarea>
+</div>
+
+<div class="field">
+  <label class="primary" for="comments">Comments</label>
+  <br />
+  <label class="secondary" for="comments">If you'd like, type any additional comments or questions you have about the assignment. This is also a space for you to just tell me something.</label>
+  <br />
+  <textarea name="comments" id="comments" rows="8" cols="75"></textarea>
 </div>
 
 <input type="submit" value="Submit" />
 </form>
-
-</body>
-</html>
+{% endblock %}

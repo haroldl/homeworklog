@@ -23,3 +23,6 @@ def submit(request):
 
 def thanks(request, first_name):
     return render_to_response('log/thanks.html', {'first_name': first_name})
+
+def css(request):
+    return render_to_response('log/css', mimetype='text/css')
