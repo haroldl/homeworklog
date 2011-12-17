@@ -13,16 +13,16 @@
 <div class="field">
   <label class="primary" for="first_name">First Name</label>
   <br />
-  <input type="text" name="first_name" id="first_name" value=""></input>
+  <input type="text" name="first_name" id="first_name" value="{{ name }}"></input>
 </div>
 
 <div class="field">
   <label class="primary for="group">Group</label>
   <ul class="radio-buttons">
-    <li><input type="radio" name="group" value="5 Air">&nbsp;5 Air</input></li>
-    <li><input type="radio" name="group" value="5 Water">&nbsp;5 Water</input></li>
-    <li><input type="radio" name="group" value="6 Air">&nbsp;6 Air</input></li>
-    <li><input type="radio" name="group" value="6 Water">&nbsp;6 Water</input></li>
+    <li><input type="radio" name="group" value="5 Air"{{ group0 }}>&nbsp;5 Air</input></li>
+    <li><input type="radio" name="group" value="5 Water"{{ group1 }}>&nbsp;5 Water</input></li>
+    <li><input type="radio" name="group" value="6 Air"{{ group2 }}>&nbsp;6 Air</input></li>
+    <li><input type="radio" name="group" value="6 Water"{{ group3 }}>&nbsp;6 Water</input></li>
   </ul>
 </div>
 
@@ -37,10 +37,10 @@
   <br />
   <label class="secondary" for="completion">How much of the assignment did you complete?</label>
   <ul class="radio-buttons">
-    <li><input type="radio" name="completion" value="<50">&nbsp;&lt 50%</input></li>
-    <li><input type="radio" name="completion" value="0to50">&nbsp;50&mdash;75%</input></li>
-    <li><input type="radio" name="completion" value="75to90">&nbsp;75&mdash;90%</input></li>
-    <li><input type="radio" name="completion" value="90to100">&nbsp;90&mdash;100%</input></li>
+    <li><input type="radio" name="completion" value="0">&nbsp;&lt 50%</input></li>
+    <li><input type="radio" name="completion" value="1">&nbsp;50&mdash;75%</input></li>
+    <li><input type="radio" name="completion" value="2">&nbsp;75&mdash;90%</input></li>
+    <li><input type="radio" name="completion" value="3">&nbsp;90&mdash;100%</input></li>
   </ul>
 </div>
 
@@ -73,10 +73,10 @@
 </div>
 
 <div class="field">
-  <label class="primary" for="practice">Understanding</label>
+  <label class="primary" for="practice">Understanding (optional)</label>
   <br />
   <label class="secondary" for="time">
-    IF the assignment has a "Practice" section, how well did you understand this part? If the assignment didn't have a "Practice" section, skip this question.
+    IF the assignment has a <span class="emphasis">"Practice"</span> section, how well did you understand this part? If the assignment didn't have a "Practice" section, skip this question.
   </label>
   <br />
   <table class="ratings">
@@ -100,10 +100,10 @@
 </div>
 
 <div class="field">
-  <label class="primary" for="pushing">Understanding</label>
+  <label class="primary" for="pushing">Understanding (optional)</label>
   <br />
   <label class="secondary" for="time">
-    IF the assignment has a "Pushing" section, how well did you understand this part? If the assignment didn't have a "Pushing" section, skip this question.
+    IF the assignment has a <span class="emphasis">"Pushing"</span> section, how well did you understand this part? If the assignment didn't have a "Pushing" section, skip this question.
   </label>
   <br />
   <table class="ratings">
@@ -127,10 +127,10 @@
 </div>
 
 <div class="field">
-  <label class="primary" for="pondering">Understanding</label>
+  <label class="primary" for="pondering">Understanding (optional)</label>
   <br />
   <label class="secondary" for="time">
-    IF the assignment has a "Pondering" section, how well did you understand this part? If the assignment didn't have a "Pondering" section, skip this question.
+    IF the assignment has a <span class="emphasis">"Pondering"</span> section, how well did you understand this part? If the assignment didn't have a "Pondering" section, skip this question.
   </label>
   <br />
   <table class="ratings">
@@ -166,7 +166,7 @@
   <br />
   <label class="secondary" for="help">List any problems you'd like help with, or type "none".</label>
   <br />
-  <input type="text" name="help" id="help" value=""></input>
+  <textarea name="help" id="help" rows="4" cols="75"></textarea>
 </div>
 
 <div class="field">
@@ -178,7 +178,7 @@
 </div>
 
 <div class="field">
-  <label class="primary" for="comments">Comments</label>
+  <label class="primary" for="comments">Comments (optional)</label>
   <br />
   <label class="secondary" for="comments">If you'd like, type any additional comments or questions you have about the assignment. This is also a space for you to just tell me something.</label>
   <br />
